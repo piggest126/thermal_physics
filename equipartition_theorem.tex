@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{booktabs}
 \usepackage{ctex}
 \usepackage{amsmath}
 \usepackage{tikz}
@@ -91,27 +92,27 @@ eg：刚性双原子分子及其他刚性的线性分,其自由度数为5
 
 \begin{table}[htbp]
   \centering
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \multicolumn{2}{|c|}{分子种类} & 平动自由度\textbf{t} & 转动\textbf{r} & 振动\textbf{v} & $\mathbf{i=t+r+v}$ \\
-    \hline
-    \multicolumn{2}{|c|}{单原子分子} & 3 & 0 & 0 & 3 \\
-    \hline
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{ccccc c}
+    \toprule
+    \multicolumn{2}{c}{分子种类} & 平动自由度 $\mathbf{t}$ & 转动 $\mathbf{r}$ & 振动 $\mathbf{v}$ & $\mathbf{i = t + r + v}$ \\
+    \midrule
+    \multicolumn{2}{c}{单原子分子} & 3 & 0 & 0 & 3 \\
+    \midrule
     \multirow{2}{*}{双原子分子} & 刚性 & 3 & 2 & 0 & 5 \\
-    \cline{2-6}
     & 非刚性 & 3 & 2 & 1 & 6 \\
-    \hline
+    \midrule
     \multirow{4}{*}{多原子分子} & 刚性非线型 & 3 & 3 & 0 & 6 \\
-    \cline{2-6}
     & 刚性线型 & 3 & 2 & 0 & 5 \\
-    \cline{2-6}
     & 非刚性非线型 & 3 & 3 & $3n-6$ & $3n$ \\
-    \cline{2-6}
     & 非刚性线型 & 3 & 2 & $3n-5$ & $3n$ \\
-    \hline
+    \bottomrule
   \end{tabular}
+  \caption{不同类型分子的自由度分布}
+  \label{tab:molecular_degrees_of_freedom_booktabs}
 \end{table}
+
 
 \section{能量均分定理}
 
@@ -279,19 +280,181 @@ eg:单原子分子：$t = 3$,$r = 0$,$v = 0$ 则：$\bar{\varepsilon} = \overlin
     \item 热容:在存在温度差所发生的传热过程中，物体升高或降低单位温度所吸收或放出的热量称为热容，
     以$C$ 表示。 若以$\Delta Q$ 表示物体在升高(或降低) $\Delta T$ 温度的某过程中吸收(或放出)的热量，
     则物体在该过程中的热容 $C$ 定义为 :$C=\lim_{\Delta T\to0}\frac{\Delta Q}{\Delta T}=\frac{\mathrm{d}Q}{\mathrm{d}T}$   
-    \item 摩尔热容:每摩尔物体的热容，以 $C_m$ 表示
-    \item 比热容:单位质量物体的热容，以 c 表示
+    \item 摩尔热容:每摩尔物体的热容，以 $C_m$ 表示$\quad C=\nu C_m$
+    \item 比热容:单位质量物体的热容，以 c 表示$\quad C=Mc$
     \item 物体升高相同的温度吸收的热量不仅与温度差、物体的性质有关，与具体升温过程也有关
+    \begin{itemize}
+        \item 理想气体定体过程:系统与外界没有功的交换，即$V$一定,d$W=0$,则全部吸收的热量用来增加内能
+        $$\mathrm{d}Q=\mathrm{d}U\quad\Rightarrow\quad C_V=\frac{(\mathrm{d}Q)_V}{\mathrm{d}T}=\frac{\mathrm{d}U}{\mathrm{d}T}$$
+        \item 理想气体定压过程:气体膨胀时对外做功，此时$P$一定,d$W>0$,可见
+        $$\mathrm{d}Q=\mathrm{d}U+\mathrm{d}W\quad\Rightarrow\quad C_P=\frac{(\mathrm{d}Q)_P}{\mathrm{d}T}$$
+    \end{itemize}
+
+    \item 一般的表达符号
+
+定体热容 $C_V$  和 定压热容 $C_P$ 
+
+定体摩尔热容 $C_{V,m}$  和定压摩尔热容 $C_{P,m}$
+
+定体比热容 $c_V$  和 定压比热容$ c_P$
+
 \end{enumerate}
 
+\subsection{理想气体热容与理想气体内能}
+
+\subsubsection{理想气体热容与内能的经典理论值}
+
+\begin{enumerate}
+    \item 理想气体摩尔内能$U_m $
+    一个分子的平均能量$\overline{\varepsilon}=\frac{1}{2}(t+r+2\nu)kT$
+    理想气体的摩尔内能$U_m=N_A\overline{\varepsilon}=\frac{1}{2}(t+r+2\nu)N_AkT=\frac{1}{2}(t+r+2\nu)RT$
+    eg:单原子理想气体 $\quad t=3,\quad r=\nu=0\quad\Rightarrow\quad U_m=\frac{3}{2}RT$
+    \item 理想气体摩尔热容
+    $$\mathrm{d}Q_{V,m}=\mathrm{d}U_m\quad\Rightarrow\quad C_{V,m}=\frac{(\mathrm{d}Q)_{V,m}}{\mathrm{d}T}=\frac{\mathrm{d}U_m}{\mathrm{d}T}$$
+    理想气体的摩尔内能:$U_m=\frac{1}{2}(t+r+2\nu)RT$
+    $$\Rightarrow\quad C_{V,m}=\frac{1}{2}(t+r+2\nu)R$$
+    eg：单原子理想气体$\quad C_{V,m}=\frac{3}{2}R$
+\end{enumerate}
+
+\subsubsection{实验值与经典理论值的比较}
+
+$$C_{V,m}=\frac{1}{2}(t+r+2\nu)R\quad\Rightarrow\quad\frac{C_{V,m}}{R}=\frac{1}{2}(t+r+2\nu)$$
+ 
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{8pt}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{ccccccc}
+    \toprule
+    单原子气体 & He & Ne & Ar & Kr & Xe & 单原子N \\
+    $\displaystyle \frac{C_{V,m}}{R}$ & 1.49 & 1.55 & 1.50 & 1.47 & 1.51 & 1.49 \\
+    \midrule
+    双原子气体 & H$_2$ & O$_2$ & N$_2$ & CO & NO & Cl$_2$ \\
+    $\displaystyle \frac{C_{V,m}}{R}$ & 2.53 & 2.55 & 2.49 & 2.49 & 2.57 & 3.02 \\
+    \midrule
+    多原子气体 & CO$_2$ & H$_2$O & CH$_4$ & C$_2$H$_4$ & C$_3$H$_6$ & NH$_3$ \\
+    $\displaystyle \frac{C_{V,m}}{R}$ & 3.24 & 3.01 & 3.16 & 4.01 & 6.17 & 3.42 \\
+    \bottomrule
+  \end{tabular}
+  \caption{不同气体的定容摩尔热容与气体常数的比值}
+  \label{tab:cv_m_ratio_booktabs}
+\end{table}
+
+可以看出:
+\begin{enumerate}
+    \item 单原子气体$\quad t=3,\quad r=\nu=0\quad\Rightarrow\quad U_m=\frac{3}{2}RT$
+    \item 双原子气体
+    $$
+    \begin{cases}
+    \text{刚性分子：} & t=3,\ r=2,\ \nu=0,\quad C_{V,m}=\dfrac{5}{2}R \\[6pt]
+    \text{非刚性分子：} & t=3,\ r=2,\ \nu=1,\quad C_{V,m}=\dfrac{7}{2}R
+    \end{cases}
+    $$
+大多数双原子分子$C_{V,m}$常温实验值与不计振动的理论值大体相等
+\item 多原子气体:情况较复杂,许多多原子气体不计振动的理论值与实验值接近，但有显著差别           
+\end{enumerate}
+
+\section{能量均分定理的局限  自由度的冻结}
+
+\subsection{能量均分定理的局限}
+
+基于能量均分定理的经典热容理论获得了很大成功，但也体现出一定的局限性。主要表现为
+
+\begin{enumerate}
+    \item 不能解释多原子分子气体的定体摩尔热容
+    \item 双原子分子气体的定体摩尔热容虽然接近$\frac{5R}{2}$，但数值上仍存在超出实验测量误差的范围的差别
+    \item 对双原子分子气体的定体摩尔热容测量值表明其为刚性分子，即这些分子内部的原子间没有振动。这一点在物理图象上很难想象，并且与光谱研究的结果不一致
+    \item 根据能量均分定理，气体的定体摩尔热容$C_{V,m}$应是常数,这点在温度变化范围不太大时与实验结果相符,但是当温度变化范围足够大时热容是与温度相关的
+\end{enumerate}
+
+    
+    \begin{table}[htbp]
+    \centering
+    \caption{不同温度区间内氢气的定容摩尔热容}
+    \label{tab:h2_cv_temp}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{c c c}
+    \toprule % 粗顶线
+    \textbf{温度区间} & \textbf{激发状态} & $\boldsymbol{C_{V,m}/R}$ \\
+    \midrule % 粗中线
+    
+    极低温 ($20 \sim 50\,\text{K}$) & 仅平动自由度冻结 & $\dfrac{3}{2}$ \\
+    
+    中温 ($250 \sim 750\,\text{K}$)   & 平动+转动激发     & $\dfrac{5}{2}$ \\
+    
+    高温 ($> 750\,\text{K}$)        & 振动开始激发     & $\to \dfrac{7}{2}$ \\
+    
+    \bottomrule % 粗底线
+    \end{tabular}
+    \end{table}
+
+    但在温度还没有升到足够7R/2时，氢分子已经离解为氢原子
+
+    其他双原子分子也有类似情况，只是温度范围不同
 
 
 
+\begin{table}[htbp]
+  \centering
+  \caption{氢气$H_2$不同温度下的定容摩尔热容与自由度对应关系}
+  \label{tab:h2_cv_degree}
+  \renewcommand{\arraystretch}{1.8} % 加大行距，数值可按需调整
+  \begin{tabular}{c c}
+    \toprule
+    \textbf{温度区间与定容摩尔热容} & \textbf{对应自由度} \\
+    \midrule
+    极低温 ($20\sim50\,\text{K}$), $C_{V,m}=\dfrac{3}{2}R$ & 相当于 $t=3$, $r=v=0$ \\
+    \midrule
+    常温 ($250\sim750\,\text{K}$), $C_{V,m}=\dfrac{5}{2}R$ & 相当于 $t=3$, $r=2$, $v=0$ \\
+    \midrule
+    高温 ($>750\,\text{K}$), $C_{V,m}\approx\dfrac{7}{2}R$ & 相当于 $t=3$, $r=2$, $v=1$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+与能量均分定理不一致
 
+经典热容理论无法解释这些矛盾现象的根本原因
 
+能量均分定理以经典力学为基础,而经典力学认为能量是连续变化的
 
+对原子、分子等微观粒子，经典力学不再适用，必须用量子力学
 
+量子理论：粒子的能量不是连续变化的，而是取一系列分立的数值
+
+基于量子理论的统计力学，能够对气体的热容值给出满意的解释
+
+\subsection{自由度的“冻结”}
+
+在温度较低时，某个自由度对热容没有贡献——这个自由度被“冻结”
+
+\begin{enumerate}
+    \item 当某个自由度被“冻结”时，这个自由度对定体热容及内能不作贡献
+    \item 自由度的“冻结”或“解冻”都是在某一特定温度范围内逐渐进行的
+    \item 不同种类的分子、同种类分子不同种类的自由度被“冻结”或“解冻”的温度范围是不同的
+    \item 自由度“冻结”“解冻”的原因只能采用量子观点用统计力学加以解释
+    \item 振动能对热容的影响
+    
+    大部分分子的振动能级间距较大，在几千K，因而多数气体的振动自由度在室温时是被“冻结”的，这就是室温时大部分双原子和多原子分子看作刚性的原因
+
+    $$\begin{aligned}\varepsilon_\nu=(n+\frac{1}{2})h\nu&&n=0,1,2,\cdotp\cdotp\cdotp&\left\{\begin{array}{c}\nu\text{一振动频率}\\\\h\text{一振动量子数}\end{array}\right.\end{aligned}$$
+    
+    $\frac{h\nu}{k}$约几千倍，要使分子振动状态发生改变，需一次提供几千 K的能量
+
+$$
+\text{气体温度 } T
+\begin{cases}
+\text{在几十} K \text{以下时，分子碰撞不能使分子振动，} \\
+\text{振动能}\varepsilon_\nu\text{对热容无影响} \\[6pt]
+\text{为常温时，振动能开始有影响，但很小} \\[6pt]
+\text{高温时，振动能影响显著} \\[6pt]
+T\gg h\nu/k\text{时，量子理论与经典理论结果一致}
+\end{cases}
+$$
+
+    \item 转动能对热容的影响
+\end{enumerate}
 
 
 
