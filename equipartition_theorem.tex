@@ -1,0 +1,295 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{unicode-math}
+\usepackage{multirow}
+\usetikzlibrary{arrows.meta, decorations.markings,patterns}
+\begin{document}
+
+\section{自由度与自由度数}
+
+\subsection{概念}
+
+自由度：描述一个物体在空间的位置所需的独立坐标
+
+自由度数：决定一个物体在空间的位置所需的独立坐标数
+
+\subsection{质点的自由度数}
+
+1. 一个质点的自由度数：                  
+
+限制于直线或曲线上运动的质点：1个自由度数
+
+限制于平面或曲面上运动的质点：2个自由度数
+
+任意运动（自由运动）的质点：3个自由度数
+
+2.n个质点的自由度数：
+
+自由运动时有3n个自由度数
+
+\subsection{刚体的自由度数}
+
+1.．刚体是由大量质点组成的系统　
+
+其特点是质点间的距离,方位固定不变。
+
+定轴转动：1个自由度数$\varphi $
+
+任意转动： 质心位置：3个自由度数——x,y,z三个平动自由度
+
+ 转轴取向（方位）：2个自由度数
+$$\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1$$
+
+ 刚体上任一点绕转轴的角度：1个自由度数 $\varphi$
+
+ 物体的自由度数：
+
+质点：$\left\{\begin{array}{l}\text { 一维运动： } 1 \text { 个自由度 } \quad t=1 \\ \text { 二维运动： } 2 \text { 个自由度 } \quad t=2 \\ \text { 三维运动： } 3 \text { 个自由度 } \quad t=3\end{array}\right.$
+
+刚体：$\left\{\begin{array}{l}\text { 定轴转动： } 1 \text { 个自由度 } \quad r=1 \\ \text { 绕定点转动： } 3 \text { 个自由度 } \quad r=3 \\ \text { 三平动+转动： } 6 \text { 个自由度 } \quad t=3, r=3\end{array}\right.$
+
+\subsection{分子的自由度数目}
+
+1.刚性分子：把分子看作刚,组成分子的原子间距及方位固定不变。
+
+刚性分子的自由度数目与刚体基本一致。
+
+2.非刚性分子：
+(1）单原子分子：eg：H,N,Ar ,可看作质,等有3个平动自由度数
+
+(2) 双原子分子： eg：$H_2,O_2,N_2,CO$ 等  
+
+质心位置：3个平动自由度数  
+
+连线方位：2个转动自由度数  
+
+两原子的相对位置：1个振动自由度数
+
+共6个自由度=3个平动自由度+2个转动自由度+1个振动自由度
+
+(3)多原子分子（N个）：
+
+最多 $3N$ 个自由度数：$\left\{
+\begin{array}{l l l l l}
+\text{平动:质心位置:} \qquad 3\text{个} & \\
+\qquad\\
+\text{转动}  \left\{ \begin{array}{l l}
+\text{转轴方位:} & 2\text{个} \\
+\text{绕轴转动:} & 1\text{个}
+\end{array} \right. & \\
+\qquad\\
+\text{振动:} \qquad 3N-6 \text{个 } (N>2) &
+\end{array}
+\right.$
+
+3.注意：当分子运动受到某种限制,其自由度数就会减少。 
+
+eg：刚性双原子分子及其他刚性的线性分,其自由度数为5
+
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{分子种类} & 平动自由度\textbf{t} & 转动\textbf{r} & 振动\textbf{v} & $\mathbf{i=t+r+v}$ \\
+    \hline
+    \multicolumn{2}{|c|}{单原子分子} & 3 & 0 & 0 & 3 \\
+    \hline
+    \multirow{2}{*}{双原子分子} & 刚性 & 3 & 2 & 0 & 5 \\
+    \cline{2-6}
+    & 非刚性 & 3 & 2 & 1 & 6 \\
+    \hline
+    \multirow{4}{*}{多原子分子} & 刚性非线型 & 3 & 3 & 0 & 6 \\
+    \cline{2-6}
+    & 刚性线型 & 3 & 2 & 0 & 5 \\
+    \cline{2-6}
+    & 非刚性非线型 & 3 & 3 & $3n-6$ & $3n$ \\
+    \cline{2-6}
+    & 非刚性线型 & 3 & 2 & $3n-5$ & $3n$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{能量均分定理}
+
+\subsection{问题提出}
+
+理想气体分子的热运动平均平动动能为$\overline{\varepsilon_t}=\frac{1}{2}m\overline{v^2}=\frac{3}{2}kT$
+
+其中$\overline{v^2}=\overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2}$
+
+当系统达平衡态,理气分子热运动无择优取,故有：
+
+$$\overline{\nu_x^2}=\overline{\nu_y^2}=\overline{\nu_z^2}=\frac{1}{3}\overline{\nu^2}\quad\Rightarrow\quad\frac{1}{2}m\overline{\nu_x^2}=\frac{1}{2}m\overline{\nu_y^2}=\frac{1}{2}m\overline{\nu_x^2}=\frac{1}{3}(\frac{1}{2}m\overline{\nu^2})=\frac{1}{2}kT$$
+
+表明达到平衡态,理想气体分子沿x、y、z 三个平动自由度方向运动的平均平动动能均,每个自由度分到$\frac{1}{2}kT$
+
+为了解释上述结,可以设想下面的物理图像：
+
+\begin{enumerate}
+\item 气体所实现的热力学平衡态是通过分子之间的频繁碰撞得以实现和维持的达到平衡态,气体分子的各种不同形式的能量达到了充的交,使得总能量只能机会均等的分配于每一种运动形式或每一个自由度。
+
+\item 如果这一物理图象是正确,那,上面由气体分子的平动运动得到的能量按平动自由度均分的结论应该也适用于其他自由,如转动自由度和振动自由度
+
+\item 能量按自由度均分的结果对液体和固体也是成立的
+
+\end{enumerate}
+
+\subsection{动能均分}
+
+能量按自由度均分定理
+
+在温度为T的平衡态,物质（气、液、固态）分子的每一个自由度都具有相同的平均动,其大小都等于$\frac{1}{2}kT$
+
+eg：非刚性双原子分子：平动动能$\frac{3}{2}kT$,转动动能$\frac{1}{2}kT\times 2=kT$,振动动能 $\frac{1}{2}kT$
+
+若分子有平动自由度数,转动自由度数,振动自由度数v,则分子的平均总动能为：
+
+$$\overline{\varepsilon_k}=\frac{1}{2}(t+r+v)kT$$
+
+\subsection{平均振动动能与平均振动势能均分}
+
+对于多原子分子,在振动自由度上除具有动能外,还含有振动势能
+
+分子内原子的振动都是微振动,可以近似看作简谐振动
+
+作简谐振动的系统在一个周期内的平均动能=平均势能
+
+对任意一个振动自由度,其能量=$\frac{1}{2}kT$平均振动动能+$\frac{1}{2}kT$平均振动势能=$kT$能量  
+
+即：一个振动自由度均分$kT$的能量
+
+\subsection{分子的平均总能量}
+
+$$\overline{\varepsilon}=(t+r+2v)\frac{1}{2}kT=\frac{1}{2}ikT\quad(i=t+r+2v)$$
+
+eg:单原子分子：$t = 3$,$r = 0$,$v = 0$ 则：$\bar{\varepsilon} = \overline{\varepsilon}_t = \frac{3}{2} kT$
+
+非刚性双原子分子：$t = 3$,$r = 2$,$v = 1$ 则：$\bar{\varepsilon} = \frac{7}{2} kT$
+
+刚性双原子分子：$t = 3$,$r = 2$,$v = 0$ 则：$\bar{\varepsilon} = \frac{5}{2} kT$
+
+\subsection{说明}
+
+\begin{enumerate}
+
+\item 上式中的各自由度应当是确实对能量均分作全部贡献的自由度,“冻结”的自由度不计算在内
+
+\begin{itemize}
+
+    \item 温度不高的常见气体,振动自由度被冻结,呈刚性分子特点
+    
+    $ i=3+2,\quad\overline{\varepsilon}=\frac{5}{2}kT=\overline{\varepsilon_k}$
+
+    \item 水汽分子:$i=3$(平动)+$3$(转动)$\quad\overline{\varepsilon}=3kT$
+\end{itemize}
+
+\item 只有平衡态下才能应用能量均分定理
+\item 能量均分定理本质上是关于热运动的统计规律,是对大量分子统计平均所得的结果.对单个分子来说,它在某一时刻的各自由度的能量或其总能量与由能量均分定理确定的平均能量不一定相等甚至相差很大。
+\item 能量均分定理不仅适用于理想气体,也可以用于液体和固体
+\item 气、液、固态实现能量按自由度均分的物理机理不同：
+\begin{itemize}
+    \item 对于气体,能量按自由度均分是依靠大量分子间的无规则碰撞来实现的
+    \item 对于液体和固体,能量按自由度均分是通过分子间的强相互作用来实现的
+\end{itemize} 
+
+\item 发展史：
+\item \begin{itemize}
+    \item 1845年,沃特斯顿首次提出能量均分思想
+    \item 1860年,麦克斯韦提出能量按平动自由度均分
+    \item 1868年,玻尔兹曼提出能量按自由度均分
+\end{itemize}
+
+
+
+\end{enumerate}
+
+\section{物理原因}
+
+\subsection{理论}
+气体中实现的热力学平衡态,是通过气体分子之间的频繁碰撞得以建立和维持的
+
+在碰撞过程中：分子$a$的能量 $\longrightarrow$分子$b$的能量
+
+能量形式1$\longrightarrow$能量形式 2
+
+自由度$i$上的能量$\longrightarrow$ 自由度$j$上的能量
+
+达到平衡时,气体分子的各种不同运动形式的能量达到充分的交换
+
+因而不能判断某一运动形式可以具有的能量比另一种形式占有优势,总能量只能机会均等地分配于每一种运动形式或每一种自由度
+
+因而,气体分子能量按自由度均分的物理原因是：
+
+\begin{enumerate}
+    \item 通过粒子间的相互作用实现组成系统的粒子间的能量交换,建立并维持平衡态
+    \item 当达到平衡态后,粒子物理性质具有各向同性（即理想气体分子混沌性）
+\end{enumerate}
+ 
+\subsection{举例}
+
+\begin{itemize}
+    \item 非对心完全弹性碰撞
+    \item 活塞以速率$v_0$压缩气体
+    
+    设活塞在某一时刻以$v_0$速率压缩气体。气体分子$a$刚与活塞接触时(碰撞前)具有$v_x$的速度分量
+
+    碰撞后：$a$相对活塞:-$(v_x+v_0)$
+
+           $a$相对地面：$-(v_x+2v_0)$
+
+    即：$x$方向动能增加一个相应的数值。
+
+    而后：$a$分子与其它分子碰撞,将得到的此动能再传递出去
+
+\end{itemize}
+
+\section{能量均分定理应用于布朗粒子}
+
+在确定的平衡态下,方均根速率$\nu_rms=\sqrt{\frac{3kT}m}$仅与分子质量$m$ 有关,$m$ 越大,$v_{rms}$越小
+
+布朗粒子与分子无本质差别,而且布朗粒子与尘埃、砂粒等其它宏观微粒也无本质差异,只不过这些宏观微粒的$v_rms$ 更小而已。
+所以能量均分定理可用于估计布朗粒子及其它宏观微粒的无规热运动动能。
+
+布朗粒子的方均根速率:
+
+对于宏观状态下的微粒,例如粒子的质量为$10^{-9} $kg的室温下的砂粒,它的线度约为$10^{-4} $m,
+而方均根速率 $v_rms=3.5\times 10^{-6} \rm{m}\cdot \rm{s}^{-1}$,它$1s$ 内的方均根位移比砂粒本身的线度还要小得多,就看不到砂粒作布朗运动了。
+
+\section{理想气体热容}
+
+验证能量按自由度均分定理最直接的方法是与热容测量结果的比较
+
+\subsection{基本概念}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
